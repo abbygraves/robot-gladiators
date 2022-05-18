@@ -82,6 +82,7 @@ var fight = function(enemy) {
 
 // ⚠️ ––––––––––––––––––– START GAME FUNCTION ––––––––––––––––––– ⚠️
 var startGame = function () {
+
   // ⬇︎ reset player stats
   playerInfo.reset();
   for(var i = 0; i < enemyInfo.length; i++) {
@@ -185,8 +186,17 @@ var shop = function() {
 // ⛔️ –––– GAME INFORMATION╱VARIABLES –––– ⛔️
 
 // PLAYER INFO
+var getPlayerName = function() {
+  var name = "";
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name? 🤖");
+  }
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 var playerInfo = {
-  name: window.prompt("What is your robot's name? 🤖"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
