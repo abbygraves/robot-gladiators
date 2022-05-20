@@ -36,11 +36,10 @@ var fightOrSkip = function() {
       console.log("playerInfo.money", playerInfo.money);
 
       // return true if player wants to leave
-      return true;
-
-     
+      return true; 
     }
   }
+  return false;
 }
 // ⚠️ ––––––––––––––––––– End of FIGHTorSKIP FUNCTION ––––––––––––––––––– ⚠️
 
@@ -51,7 +50,9 @@ var fightOrSkip = function() {
 var fight = function(enemy) {
   // ⬇︎ repeat and execute as long as enemy-robot is alive
   while(playerInfo.health > 0 && enemy.health > 0) {
-    fightOrSkip();
+    if (fightOrSkip()) {
+      break;
+    }
     // ⬇︎ subtract playerInfo.attack variable from enemy.health
     var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
     enemy.health = Math.max(0, enemy.health - damage);
